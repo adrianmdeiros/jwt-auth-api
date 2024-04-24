@@ -1,4 +1,10 @@
-# jwt-auth-api-exemple
+# 🔐 jwt-auth-api-exemple
+<a href="https://opensource.org/license/mit/" target="_blank">
+  <img alt="License" src="https://img.shields.io/static/v1?label=license&message=MIT&color=49AA26&labelColor=000000" >
+</a>
+
+<br>
+
 API de autenticação JWT feita com TypeScript e Prisma ORM
 ## Como usar
 Clone o repositório:
@@ -84,5 +90,3 @@ Esse projeto foi desenvolvido com essas tecnologias:
 
 ### ⚖ License
 <p> Este projeto está sobre <a href="https://opensource.org/license/mit/" target="_blank">The MIT License</a> </p>
-
-
