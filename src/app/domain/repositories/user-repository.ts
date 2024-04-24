@@ -1,7 +1,7 @@
 import { PrismaClient } from "@prisma/client";
 import  { User }  from "../models/User";
 
-export interface UserData {
+export interface SavedUser {
     id: string
     email: string
 }
@@ -9,7 +9,7 @@ export interface UserData {
 export class UserRepository {
     constructor(private db: PrismaClient){}
 
-    async save(user: Omit<User, 'id'>): Promise<UserData>{
+    async save(user: Omit<User, 'id'>): Promise<SavedUser>{
         const savedUser = await this.db.user.create({
             data: user,
             select:{
@@ -20,14 +20,10 @@ export class UserRepository {
         return savedUser
     }
 
-    async findBy(email: string): Promise<UserData | null>{
+    async findBy(email: string): Promise<User | null>{
         const user = await this.db.user.findUnique({
             where: {
                 email
-            },
-            select:{
-                id: true,
-                email: true
             }
         })
         return user
