@@ -1,8 +1,9 @@
 import { prisma } from "../../database";
-import { UserData, UserRepository } from "../repositories/user-repository";
+import { User } from "../models/User";
+import { UserRepository } from "../repositories/user-repository";
 
 export class FindUserByEmailService {
-    async execute(email: string): Promise<UserData | null>{
+    async execute(email: string): Promise<User | null>{
         const userRepository = new UserRepository(prisma)
         const user = await userRepository.findBy(email);
         return user;
