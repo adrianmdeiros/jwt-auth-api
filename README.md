@@ -25,6 +25,21 @@ O docker compose irá subir os containers da aplicação Node e banco de dados p
 docker compose up -d
 ```
 
+O container da aplicação deve estar disponível em:
+
+```console
+    http://localhost:3000
+```
+
+Utilize um REST API Client de sua preferência para testar.
+Se você usa VSCode, recomendo a extensão Thunder Client:
+
+<img src=".github/assets/thunder-client.png" >
+
+<br> 
+Exemplo:
+<img src=".github/assets/thunder-client-example.png" >
+
 <br>
 
 ## Endpoints
