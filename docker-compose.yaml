@@ -3,20 +3,20 @@ version: '3'
 services:
   app:
     build: .
-    command: npm run dev
     image: adrianmedeirosdev/jwt-auth:dev
     ports:
       - 3000:3000
     networks:
       - nodenet
     environment:
-      - DATABASE_URL=postgresql://user:password@localhost:5432/db
+      - DATABASE_URL=postgresql://user:password@db:5432/db
       - JWT_SECRET=116925a4-bd0c-4b08-947a-6026eff15978
       - JWT_EXPIRATION=1d
     volumes:
       - .:/usr/app
     depends_on:
       - db
+    command: sh -c "npx prisma migrate dev && npm run dev"
     
   db:
     image: postgres:latest

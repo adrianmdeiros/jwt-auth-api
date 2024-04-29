@@ -17,6 +17,6 @@ export class UserController {
     }
 
     async read(req: Request, res: Response){
-            res.send({message: 'You are allowed to see this just becouse u have a token'})
+            res.send({message: 'You are allowed to see this just because u have a token'})
     }
 }

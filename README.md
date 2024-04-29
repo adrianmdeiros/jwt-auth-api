@@ -9,7 +9,7 @@
 
 API de autenticação JWT feita com TypeScript e Prisma ORM
 
-## Como usar
+## Como testar
 
 Clone o repositório:
 
@@ -28,7 +28,7 @@ docker compose up -d
 O container da aplicação deve estar disponível em:
 
 ```console
-    http://localhost:3000
+http://localhost:3000
 ```
 
 Utilize um REST API Client de sua preferência para testar.
