@@ -96,10 +96,10 @@ _Response_
 ```json
 {
     "message": "You are allowed to see this only because you have a token"
-}"
+}
 ```
 
-### 🚀 Technologias
+### 🚀 Tecnologias
 
 Esse projeto foi desenvolvido com essas tecnologias:
 
@@ -107,6 +107,6 @@ Esse projeto foi desenvolvido com essas tecnologias:
 - Git and Github
 - bcryptjs, jsonwebtoken, vitest, cors, http-status-codes, tsx e tsup
 
-### ⚖ License
+### ⚖ Licença
 
 <p> Este projeto está sobre <a href="https://opensource.org/license/mit/" target="_blank">The MIT License</a> </p>
