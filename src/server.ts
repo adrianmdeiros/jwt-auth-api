@@ -1,7 +1,7 @@
 import 'express-async-errors'
 import express from "express"
 import routes  from "./app/api/routes"
-import { errorHandler } from "./app/api/middlewares/errorHandler"
+import { errorHandler } from "./app/api/middlewares/error-handler"
 
 const app = express()
 const port = process.env.PORT || 3000
