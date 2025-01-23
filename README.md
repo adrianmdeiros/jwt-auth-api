@@ -14,7 +14,7 @@ API de autenticação JWT feita com TypeScript e Prisma ORM
 Clone o repositório:
 
 ```console
-git clone https://github.com/adrianmedeirosdev/jwt-auth-api-exemple.git
+git clone https://github.com/adrianmedeirosdev/jwt-auth-api-example.git
 ```
 
 <br>
