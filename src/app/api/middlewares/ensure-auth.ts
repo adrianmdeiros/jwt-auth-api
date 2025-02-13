@@ -21,7 +21,7 @@ export const ensureAuth = (req: Request, res: Response, next: NextFunction) => {
     
     try{
         const { secret } = authConfig.jwt
-        const data = jwt.verify(token, secret!)
+        const data = jwt.verify(token, secret!) as TokenPayload
         
         req.userId = data.user.id
 
