@@ -7,7 +7,6 @@ import { StatusCodes } from "http-status-codes";
 import { APIError } from '../../api/helpers/APIError';
 
 interface AuthHttpResponse {
-    user: User
     token: string
 }
 
@@ -30,18 +29,12 @@ export class AuthUserService {
         if (!passwordMatched) {
             throw new APIError('Invalid password', StatusCodes.UNAUTHORIZED)
         }
-
+            
+        const { id } = user
         const { secret, expiresIn } = authConfig.jwt
+        
+        const token = jwt.sign({ id, email } as User, secret!, { expiresIn })
 
-        const token = jwt.sign({ id: user.id }, secret!, { expiresIn })
-
-        return {
-            user: {
-                id: user.id,
-                email
-            } as User,
-            token
-        }
-
+        return token
     }
 }
