@@ -81,11 +81,19 @@ _Response_
 
 ```json
 {
-    "user": {
-        "id": "d06ef51a-1dbb-464b-ae64-bd0263eef1b6"
-        "email": "email@example.com"
-    },
     "token": "eyJhbGciOiJIUzI1NiIsInR5cCI6IkpXVCJ9.eyJpZCI6Ijk2MmRkYTU2LWY2MDgtNDk5Zi05Y2M3LTIxZmM2MjRmOTY1OSIsImlhdCI6MTcxMzkyNTA0NywiZXhwIjoxNzE0MDExNDQ3fQ.xBiNAfMJrjk9tpicpIYr4Y7wdD93d2RlZRFT3W5m9dw"
+}
+```
+
+_Token Payload_
+```json
+{
+  "user": {
+    "id": "d06ef51a-1dbb-464b-ae64-bd0263eef1b6",
+    "email": "email@example.com"
+  },
+  "iat": "1615462547",
+  "exp": "1615462547"
 }
 ```
 
