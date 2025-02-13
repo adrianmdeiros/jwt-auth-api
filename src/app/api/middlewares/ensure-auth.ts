@@ -1,10 +1,11 @@
 import jwt from 'jsonwebtoken'
 import authConfig from "../../config/auth";
+import { User } from "../../domain/models/User"
 import { NextFunction, Request, Response } from "express";
 import { StatusCodes } from "http-status-codes";
 
 interface TokenPayload {
-    id: string
+    user: User
     iat: number
     exp: number
 }
@@ -20,11 +21,9 @@ export const ensureAuth = (req: Request, res: Response, next: NextFunction) => {
     
     try{
         const { secret } = authConfig.jwt
-        const data = jwt.verify(token, secret!)
+        const data = jwt.verify(token, secret!) as TokenPayload
         
-        const { id } = data as TokenPayload
-        
-        req.userId = id
+        req.userId = data.user.id
 
         return next()
     }catch{
