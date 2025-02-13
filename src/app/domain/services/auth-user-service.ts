@@ -31,9 +31,14 @@ export class AuthUserService {
         }
             
         const { id } = user
+        const tokenPayload = {
+            user: {
+                id,
+                email
+            } as User
+        }
         const { secret, expiresIn } = authConfig.jwt
-        
-        const token = jwt.sign({ id, email } as User, secret!, { expiresIn })
+        const token = jwt.sign(tokenPayload, secret!, { expiresIn })
 
         return token
     }
