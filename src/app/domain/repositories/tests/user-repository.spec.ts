@@ -42,7 +42,7 @@ describe('User Repository', () => {
         };
 
         const mockedFindByEmailFunction = vi.fn().mockResolvedValue(userToFind)
-        userRepo.findBy = mockedFindByEmailFunction
+        userRepo.findByEmail = mockedFindByEmailFunction
         const userFound = await mockedFindByEmailFunction(userToFind.email)
 
         expect(userFound).toEqual(userToFind)
@@ -72,10 +72,10 @@ describe('User Repository', () => {
         }
 
         const mockedFindByEmailFunction = vi.fn().mockRejectedValue(new Error('User not found'))
-        userRepo.findBy = mockedFindByEmailFunction
+        userRepo.findByEmail = mockedFindByEmailFunction
 
         try{
-            await userRepo.findBy(userToFind.email)
+            await userRepo.findByEmail(userToFind.email)
         }catch(e: any){
             expect(e.message).toEqual('User not found')
         }

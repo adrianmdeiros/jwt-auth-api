@@ -7,20 +7,27 @@ export interface SavedUser {
 }
 
 export class UserRepository {
-    constructor(private db: PrismaClient){}
+    constructor(private readonly db: PrismaClient){}
 
-    async save(user: Omit<User, 'id'>): Promise<SavedUser>{
-        const savedUser = await this.db.user.create({
-            data: user,
-            select:{
+    async findAll(): Promise<SavedUser[] | null>{
+        const users = await this.db.user.findMany({
+            select: {
                 id: true,
                 email: true
             }
         })
+        
+        return users
+    }
+
+    async save(user: Omit<User, 'id'>): Promise<SavedUser>{
+        const savedUser = await this.db.user.create({
+            data: user
+        })
         return savedUser
     }
 
-    async findBy(email: string): Promise<User | null>{
+    async findByEmail(email: string): Promise<User | null>{
         const user = await this.db.user.findUnique({
             where: {
                 email
