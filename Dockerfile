@@ -1,14 +1,18 @@
 FROM node:latest
 
-WORKDIR /app
+WORKDIR /usr/app
 
-COPY package*.json .
+COPY package*.json ./
 
 RUN npm install
 
-COPY . .
+# Copy source and generate OpenAPI spec at build time so /docs is available in container
+COPY . ./
 
-RUN npx prisma generate
+# Generate tsoa spec (requires devDependencies to be present)
+RUN npm run generate:docs || true
+
+RUN npx prisma generate || true
 
 EXPOSE 3000
 
